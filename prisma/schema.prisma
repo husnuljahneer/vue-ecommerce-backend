@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model order_details {
+  id           Int       @id @default(autoincrement())
+  product_id   Int?
+  product_name String?   @db.VarChar(500)
+  qty          String?   @db.VarChar(500)
+  price        String?   @db.VarChar(500)
+  order_id     Int?
+  orders       orders?   @relation(fields: [order_id], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  products     products? @relation(fields: [product_id], references: [id], onDelete: Restrict, onUpdate: Restrict)
+
+  @@index([order_id], map: "order_key")
+  @@index([product_id], map: "product_key")
+}
+
+model orders {
+  id             Int             @id @default(autoincrement())
+  customer_id    Int?
+  first_name     String?         @db.VarChar(500)
+  last_name      String?         @db.VarChar(500)
+  address        String?         @db.VarChar(500)
+  town           String?         @db.VarChar(500)
+  pincode        String?         @db.VarChar(500)
+  email          String?         @db.VarChar(500)
+  phone          String?         @db.VarChar(500)
+  payment_status String?         @default("unpaid") @db.VarChar(500)
+  shipping_rate  String?         @default("50") @db.VarChar(500)
+  grand_total    String?         @db.VarChar(500)
+  order_details  order_details[]
+}
+
+model products {
+  id            Int             @id @default(autoincrement())
+  name          String?         @db.VarChar(500)
+  price         String?         @db.VarChar(500)
+  description   String?         @db.VarChar(500)
+  image         String?         @db.VarChar(500)
+  qty           Int?            @default(1)
+  order_details order_details[]
+}
+
+model user {
+  id       Int     @id @default(autoincrement())
+  username String? @db.VarChar(500)
+  mobile   String? @db.VarChar(500)
+  password String? @db.VarChar(500)
+  email    String? @unique @db.VarChar(500)
+}
