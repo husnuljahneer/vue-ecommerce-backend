@@ -5,6 +5,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const compression = require("compression");
+const router = require("./routes");
 const CreateError = require("http-errors");
 dotenv = require("dotenv");
 const PORT = process.env.PORT || 3000;
@@ -16,6 +17,7 @@ app.use(helmet());
 app.use(morgan("tiny"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(router);
 
 app.use("/uploads/", express.static("uploads/"));
 
@@ -36,6 +38,3 @@ app.get("*", (req, res, next) => {
 app.listen(PORT, () => {
     console.log("Server is listening on port " + PORT);
 });
-
-
-app.use(errorHandler);
