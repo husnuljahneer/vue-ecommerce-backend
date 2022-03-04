@@ -16,7 +16,6 @@ app.use(helmet());
 app.use(morgan("tiny"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.use(router);
 
 app.use("/uploads/", express.static("uploads/"));
 
