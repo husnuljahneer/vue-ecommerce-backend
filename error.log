@@ -8,3 +8,4 @@
 {"clientVersion":"3.10.0","code":"P2025","level":"error","meta":{"cause":"Record to update not found."},"timestamp":"2022-03-05T12:01:17.389Z"}
 {"level":"error","message":"User not found","timestamp":"2022-03-05T12:01:24.380Z"}
 {"level":"error","message":"Invalid Email or Password","timestamp":"2022-03-05T12:02:31.366Z"}
+{"level":"error","message":"User not found","timestamp":"2022-03-05T15:07:20.996Z"}
