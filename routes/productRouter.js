@@ -9,8 +9,11 @@ const {
     createOrder,
     userProducts
 } = require("../controllers/productController");
+// const multer  = require('multer')
+// const upload = multer({ dest: 'uploads/' })
+const upload = require("../utils/multer").upload();
 
-router.post("/createProduct", createProduct);
+router.post("/createProduct", upload.single('image'), createProduct);
 router.post("/createOrder", createOrder);
 router.get("", getProducts);
 router.get("/:id", getProductsById);

@@ -66,6 +66,7 @@ exports.createProduct = async(req, res, next) => {
             });
         }
         const data = req.body;
+        if (req.file) data.image = req.file.filename;
         const product = await createProduct(data);
         return res.status(200).json({
             status: true,
