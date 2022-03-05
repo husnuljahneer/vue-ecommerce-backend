@@ -67,13 +67,13 @@ exports.getUserByUserId = async(req, res, next) => {
     }
 };
 
-// exports.logout = async(req, res, next) => {
-//     try {
-//         return res.status(200).json({
-//             status: true,
-//             message: "User has been logged out successfully",
-//         });
-//     } catch (err) {
-//         next(err);
-//     }
-// };
+exports.logout = async(req, res, next) => {
+    try {
+        return res.status(200).json({
+            status: true,
+            message: "User has been logged out successfully",
+        });
+    } catch (err) {
+        next(err);
+    }
+};
