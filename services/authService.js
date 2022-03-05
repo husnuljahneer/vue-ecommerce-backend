@@ -4,6 +4,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const _ = require("lodash");
 const CreateError = require("http-errors");
+const logger = require("../utils/logger");
 require("dotenv").config();
 
 exports.createUser = async({ username, email, password }) => {
