@@ -1,7 +1,7 @@
 {
     "name": "vue-ecommerce-backend",
     "version": "1.0.0",
-    "description": "express-api",
+    "description": "Vue.js eCommerce Backend",
     "main": "app.js",
     "scripts": {
         "test": "jest"
