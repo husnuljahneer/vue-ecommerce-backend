@@ -2,11 +2,23 @@ const {
     createUser,
     loginUser,
 } = require("../services/authService");
+const authValidator = require("../middlewares/authValidator");
 const _ = require("lodash");
 require("dotenv").config();
 
 exports.signup = async(req, res, next) => {
     try {
+        const validateData = _.pick(req.body, ["username", "email", "password"]);
+
+        //validator
+        const userSchema = authValidator.signup;
+        const validateResult = userSchema.validate(req.body, validateData);
+        if (validateResult.error) {
+            return res.status(400).json({
+                message: validateResult.error.details[0].message,
+            });
+        }
+
         const user = await createUser(req.body);
         return res.status(200).json({
             status: true,
