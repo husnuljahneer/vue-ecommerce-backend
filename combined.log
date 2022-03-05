@@ -16,4 +16,13 @@ error: User already exists
 error: User already exists
 error: User already exists
 error: User already exists
-error: undefined {"clientVersion":"3.7.0"}
+error: undefined {"clientVersion":"3.7.0"}error: User not found
+error: User not found
+error: User not found
+error: undefined {"clientVersion":"3.10.0","code":"P2025","meta":{"cause":"Record to update not found."}}
+error: undefined {"clientVersion":"3.10.0","code":"P2025","meta":{"cause":"Record to update not found."}}
+error: undefined {"clientVersion":"3.10.0","code":"P2025","meta":{"cause":"Record to update not found."}}
+error: undefined {"clientVersion":"3.10.0","code":"P2025","meta":{"cause":"Record to update not found."}}
+error: undefined {"clientVersion":"3.10.0","code":"P2025","meta":{"cause":"Record to update not found."}}
+error: User not found
+error: Invalid Email or Password
