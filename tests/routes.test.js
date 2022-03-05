@@ -1,6 +1,17 @@
 const request = require("supertest");
 let link = "http://localhost:3000";
 
+//UNKNOWN ROUTE
+
+describe("Unknown Route", function() {
+    it("responds with json", function(done) {
+        request(link).get("/unknownRoute")
+            .set("Accept", "application/json")
+            .expect(404, done);
+    });
+});
+
+
 //GET
 
 describe("GET /", function() {
@@ -20,11 +31,56 @@ describe("GET /products", function() {
     });
 });
 
+describe("GET /products/:id", function() {
+    it("responds with json", function(done) {
+        request(link)
+            .get("/products/1")
+            .set("Accept", "application/json")
+            .expect(200, done);
+    });
+});
+
+describe("GET /products/userProducts/:id", function() {
+    it("responds with json", function(done) {
+        request(link)
+            .get("/userProducts/34")
+            .set("Accept", "application/json")
+            .expect(200, done);
+    });
+});
+
 describe("GET /users", function() {
     it("responds with json", function(done) {
         request(link)
             .get("/users")
             .set("Accept", "application/json")
             .expect(200, done);
+    });
+});
+
+describe("GET /users/:id", function() {
+    it("responds with json", function(done) {
+        request(link)
+            .get("/users/11")
+            .set("Accept", "application/json")
+            .expect(200, done);
+    });
+});
+
+
+//POST
+
+describe('POST /createProduct', function() {
+    it('responds with json', function(done) {
+        request(link)
+            .post('/createProduct')
+            .send({ name: 'Test Product', price: '100', description: 'Test Description', image: 'https://unsplash.com/photos/QQ-ZQy9qQZs' })
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end(function(err, res) {
+                if (err) return done(err);
+                return done();
+            });
     });
 });
