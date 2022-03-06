@@ -1,3 +1,4 @@
+const csrfProtection = require('../middlewares/csrfProtection');
 const express = require("express");
 const router = express.Router();
 const {
@@ -13,7 +14,7 @@ const {
 // const upload = multer({ dest: 'uploads/' })
 const upload = require("../utils/multer").upload();
 
-router.post("/createProduct", upload.single('image'), createProduct);
+router.post("/createProduct", upload.single('image'), csrfProtection, createProduct);
 router.post("/createOrder", createOrder);
 router.get("", getProducts);
 router.get("/:id", getProductsById);
