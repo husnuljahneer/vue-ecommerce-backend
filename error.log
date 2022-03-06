@@ -13,3 +13,5 @@
 {"level":"error","message":"Invalid Email or Password","timestamp":"2022-03-06T10:58:06.221Z"}
 {"level":"error","timestamp":"2022-03-06T10:58:20.695Z"}
 {"level":"error","timestamp":"2022-03-06T10:59:45.602Z"}
+{"level":"error","message":"User already exists","timestamp":"2022-03-06T11:00:19.179Z"}
+{"level":"error","message":"User already exists","timestamp":"2022-03-06T11:00:21.066Z"}
