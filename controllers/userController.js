@@ -4,6 +4,8 @@ const {
     getAllUsers,
     getUser,
 } = require("../services/userService");
+const passport = require("passport");
+require("../utils/authStrategy")(passport);
 require("dotenv").config();
 const _ = require("lodash");
 

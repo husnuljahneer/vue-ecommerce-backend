@@ -7,6 +7,8 @@ const {
     createOrder,
     userProducts,
 } = require("../services/productService");
+const passport = require("passport");
+require("../utils/authStrategy")(passport);
 const _ = require("lodash");
 require("dotenv").config();
 

@@ -23,7 +23,7 @@ app.use("/uploads/", express.static("uploads/"));
 
 app.get("/", (req, res) => {
     res.status(200).json({
-        message: "Welcome to the API",
+        message: "Welcome to the API v1.0",
     });
 });
 
