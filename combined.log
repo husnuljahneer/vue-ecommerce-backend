@@ -27,3 +27,7 @@ error: undefined {"clientVersion":"3.10.0","code":"P2025","meta":{"cause":"Recor
 error: User not found
 error: Invalid Email or Password
 error: User not found
+error: Invalid Email or Password
+error: Invalid Email or Password
+error: undefined
+error: undefined

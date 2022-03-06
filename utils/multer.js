@@ -10,14 +10,18 @@ module.exports.upload = function upload(prefix) {
         },
         filename: function(req, file, cb) {
             const regEx = /\.[a-zA-Z]{3,4}$/;
+
             const ext = file.originalname.match(regEx);
             const name = file.originalname.slice(0, -ext[0].length);
             let filename = `${name}-${Date.now()}${ext}`;
+
             const space = /\s/gi;
             filename = filename.replace(space, "-");
+
             if (prefix) {
                 filename = `${prefix}/${filename}`;
             }
+
             req._image = filename;
             cb(null, filename);
         },

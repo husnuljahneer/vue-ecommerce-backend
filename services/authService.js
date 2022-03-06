@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const saltRounds = process.env.SALT_ROUNDS;
+const saltRounds = 10;
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const _ = require("lodash");
