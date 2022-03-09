@@ -68,6 +68,6 @@ exports.loginUser = async({ email, password }) => {
         return user;
     } catch (err) {
         logger.error(err);
-        throw CreateError(400, err.message);
+        throw err;
     }
 };

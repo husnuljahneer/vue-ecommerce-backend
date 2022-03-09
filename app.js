@@ -1,5 +1,4 @@
 const express = require("express");
-// deepcode ignore UseCsurfForExpress <no need of csurf for demo>
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -8,6 +7,7 @@ const morgan = require("morgan");
 const compression = require("compression");
 const router = require("./routes");
 const CreateError = require("http-errors");
+const errorHandler = require("./middlewares/errorHandler");
 dotenv = require("dotenv");
 const PORT = process.env.PORT || 3000;
 
@@ -24,10 +24,9 @@ app.use("/uploads/", express.static("uploads/"));
 
 app.get("/", (req, res) => {
     res.status(200).json({
-        message: "Welcome to the API v1.0",
+        message: "Welcome to the API",
     });
 });
-
 
 app.get("*", (req, res, next) => {
     res.status(404).json({
@@ -40,3 +39,6 @@ app.get("*", (req, res, next) => {
 app.listen(PORT, () => {
     console.log("Server is listening on port " + PORT);
 });
+
+
+app.use(errorHandler);
