@@ -1,4 +1,5 @@
 const express = require("express");
+// deepcode ignore UseCsurfForExpress <no need of csurf for demo>
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");

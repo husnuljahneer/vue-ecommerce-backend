@@ -6,6 +6,7 @@ const {
     deleteProduct,
     createOrder,
     userProducts,
+    invoice
 } = require("../services/productService");
 const passport = require("passport");
 require("../utils/authStrategy")(passport);
@@ -123,15 +124,31 @@ exports.deleteProduct = async(req, res, next) => {
         next(err);
     }
 };
+exports.invoice = async(req, res, next) => {
+    try {
+        const id = req.params.id;
+        const orderId = req.params.orderId;
+        const shippingDetails = await invoice({ id, orderId });
+        return res.status(200).json({
+            status: true,
+            message: "Invoice has been created successfully",
+            shippingDetails,
+        });
+    } catch (err) {
+        next(err);
+    }
+};
 
 exports.userProducts = async(req, res, next) => {
     try {
         const id = req.params.id;
         const product = await userProducts({ id });
+        const shippingDetails = await userProducts({ id });
         return res.status(200).json({
             status: true,
             message: "Product has been fetched successfully",
             product,
+            shippingDetails
         });
     } catch (err) {
         next(err);

@@ -22,8 +22,8 @@ model order_details {
 }
 
 model orders {
-  id             Int             @id @default(autoincrement())
-  customer_id    Int?
+  id             Int             @id @unique @default(autoincrement())
+  customer_id    Int?            @unique 
   first_name     String?         @db.VarChar(500)
   last_name      String?         @db.VarChar(500)
   address        String?         @db.VarChar(500)

@@ -8,6 +8,7 @@ const {
 } = require('../controllers/userController');
 require('../middlewares/passport');
 const passport = require('passport')
+    // deepcode ignore NoRateLimitingForLogin: <No need to rate limit while on demo>
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
 router.get('', getAllUsers);

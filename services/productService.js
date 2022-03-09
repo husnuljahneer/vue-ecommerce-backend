@@ -59,9 +59,22 @@ exports.createProduct = async({ name, price, description, image }) => {
     return product;
 };
 
+exports.invoice = async({ id, orderId }) => {
+    const orderIds = parseInt(orderId);
+    const userId = parseInt(id);
+    const shippingDetails = await prisma.orders.findFirst({
+        where: {
+            AND: [
+                { customer_id: userId },
+                { id: orderIds },
+            ],
+        },
+    });
+    return shippingDetails;
+};
+
 exports.userProducts = async({ id }) => {
     const userId = parseInt(id);
-    // console.log(userId);
     const product = await prisma.orders.findMany({
         where: {
             customer_id: userId,

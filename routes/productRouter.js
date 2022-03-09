@@ -7,7 +7,8 @@ const {
     updateProduct,
     deleteProduct,
     createOrder,
-    userProducts
+    userProducts,
+    invoice,
 } = require("../controllers/productController");
 // const multer  = require('multer')
 // const upload = multer({ dest: 'uploads/' })
@@ -18,6 +19,7 @@ router.post("/createOrder", createOrder);
 router.get("", getProducts);
 router.get("/:id", getProductsById);
 router.get("/userProducts/:id", userProducts);
+router.get("/invoice/userId=:id&orderId=:orderId", invoice);
 router.put("/updateproduct/:id", updateProduct);
 router.delete("/deleteProduct/:id", deleteProduct);
 

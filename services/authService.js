@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+// deepcode ignore HardcodedSecret: <Hardcoded>
 const saltRounds = 10;
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();

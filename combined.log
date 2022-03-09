@@ -33,3 +33,7 @@ error: undefined
 error: undefined
 error: User already exists
 error: User already exists
+error: Invalid Email or Password
+error: Invalid Email or Password
+error: Invalid Email or Password
+error: Invalid Email or Password
