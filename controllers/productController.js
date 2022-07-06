@@ -59,10 +59,10 @@ exports.createProduct = async(req, res, next) => {
     // console.log(req.body);
     try {
         if (
-            req.body.name == null ||
-            req.body.price == null ||
-            req.body.description == null ||
-            req.body.image == null
+            req.body.name === null ||
+            req.body.price === null ||
+            req.body.description === null ||
+            req.body.image === null
         ) {
             return res.status(400).json({
                 message: "Please fill all the fields",
