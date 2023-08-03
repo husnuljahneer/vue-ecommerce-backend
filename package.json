@@ -49,6 +49,6 @@
     },
     "devDependencies": {
         "@faker-js/faker": "6.0.0-alpha.7",
-        "jest-mock-extended": "2.0.4"
+        "jest-mock-extended": "3.0.5"
     }
 }
